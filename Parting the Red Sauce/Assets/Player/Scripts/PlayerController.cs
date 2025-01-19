@@ -1,5 +1,6 @@
 using System;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,9 +12,11 @@ public class PlayerController : MonoBehaviour
     
     private CharacterController characterController;
     // i dont think this component works for 2D stuff
+
+    private Rigidbody2D playerMovement;
     
-    private Vector2 movement;
-    private Vector2 lookat;
+    private Vector2 inputMovement;
+    private Vector2 inputLookat;
     
     [SerializeField] private float playerSpeed = 3.4f;
     [SerializeField] private float rightStickLookatDistance = 1.5f;
@@ -25,7 +28,8 @@ public class PlayerController : MonoBehaviour
         if (playerObject == null)
         {
             playerObject = GameObject.FindGameObjectWithTag("Player");
-            characterController = playerObject.GetComponent<CharacterController>();
+            //characterController = playerObject.GetComponent<CharacterController>();
+            playerMovement = playerObject.GetComponent<Rigidbody2D>();
         }
 
         if (rightStickLookat == null)
@@ -38,8 +42,8 @@ public class PlayerController : MonoBehaviour
             shootyBarrel = GameObject.Find("ShootyBarrel");
         }
         
-        movement = playerObject.transform.position;
-        lookat = rightStickLookat.transform.position;
+        inputMovement = playerObject.transform.position;
+        inputLookat = rightStickLookat.transform.position;
     }
 
     public void DeviceChangeEvent(PlayerInput playerInput)
@@ -53,7 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(context.ReadValue<Vector2>());
         
-        movement = new Vector2(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y);
+        inputMovement = new Vector2(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y);
     }
 
     public void OnLook(InputAction.CallbackContext context)
@@ -65,15 +69,13 @@ public class PlayerController : MonoBehaviour
         {
             if (currentInputDevice == "Keyboard")
             {
-                lookat = new Vector2(
-                    Mathf.Clamp(context.ReadValue<Vector2>().x, -1.0f, 1.0f) * rightStickLookatDistance,
-                    Mathf.Clamp(context.ReadValue<Vector2>().y, -1.0f, 1.0f) * rightStickLookatDistance);
-                // this section will handle mouse input. need to convert mouse position into a world vector
-                // then the arrow will look at the converted vector
+                Vector3 mouseToScreen = Camera.main.ScreenToWorldPoint(
+                    new Vector3(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y, 0));
+                inputLookat = new Vector2(mouseToScreen.x, mouseToScreen.y);
             }
             else
             {
-                lookat = new Vector2(
+                inputLookat = new Vector2(
                     context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y) * rightStickLookatDistance;
             }
         }
@@ -81,19 +83,27 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision Enter: " + collision.gameObject.name);
+        //Debug.Log("Collision Enter: " + collision.gameObject.name);
+    }
+
+    private void FixedUpdate()
+    {
+        // so the movement is physics-based, we shall see how it goes lol!
+        Vector2 newPlayerPosition = new Vector2(inputMovement.x, inputMovement.y) * (playerSpeed * Time.deltaTime);
+        
+        playerMovement.MovePosition(newPlayerPosition + playerMovement.position);
     }
 
     private void Update()
     {
-        //playerObject.transform.position += new Vector3(movement.x, movement.y, 0) * (playerSpeed * Time.deltaTime);
-
-        playerObject.GetComponent<Rigidbody2D>().MovePosition(new Vector2(movement.x, movement.y) * (playerSpeed * Time.deltaTime));
-        // need to use Rigidbody2D.MovePosition() to move the player or else collisions dont happen
-        // still playing around with it
-        
-        rightStickLookat.transform.localPosition = new Vector3(lookat.x, lookat.y, 0);
-        
+        if (currentInputDevice == "Keyboard")
+        {
+            rightStickLookat.transform.position = new Vector3(inputLookat.x, inputLookat.y, 0);
+        }
+        else
+        {
+            rightStickLookat.transform.localPosition = new Vector3(inputLookat.x, inputLookat.y, 0);
+        }
         shootyBarrel.transform.LookAt(rightStickLookat.transform.position);
     }
 }
