@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // so the movement is physics-based, we shall see how it goes lol!
-        Vector2 newPlayerPosition = new Vector2(inputMovement.x, inputMovement.y) * (playerSpeed * Time.deltaTime);
+        Vector2 newPlayerPosition = new Vector2(inputMovement.x, inputMovement.y) * (playerSpeed * Time.fixedDeltaTime);
         
         playerMovement.MovePosition(newPlayerPosition + playerMovement.position);
     }
