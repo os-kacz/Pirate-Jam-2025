@@ -9,9 +9,6 @@ public class PlayerController : MonoBehaviour
     private GameObject playerObject;
     private GameObject rightStickLookat;
     private GameObject shootyBarrel;
-    
-    private CharacterController characterController;
-    // i dont think this component works for 2D stuff
 
     private Rigidbody2D playerMovement;
     
@@ -28,7 +25,6 @@ public class PlayerController : MonoBehaviour
         if (playerObject == null)
         {
             playerObject = GameObject.FindGameObjectWithTag("Player");
-            //characterController = playerObject.GetComponent<CharacterController>();
             playerMovement = playerObject.GetComponent<Rigidbody2D>();
         }
 
