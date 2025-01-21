@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b6733751-9ddc-44fd-8751-97195a8bb6f2}">
+		<property name="assetPath">
+			<value>Kyjo-Blue-john-scream-.mp3</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>5.9036734693877548</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b36d230c-0e2c-46c7-9093-9b1e1f87f202}</destination>
+		</relationship>
+	</object>
+</objects>
