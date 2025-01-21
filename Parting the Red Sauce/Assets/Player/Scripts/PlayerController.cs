@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+
     private GameObject playerObject;
     private GameObject rightStickLookat;
     private GameObject shootyBarrel;
@@ -22,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+
         if (playerObject == null)
         {
             playerObject = GameObject.FindGameObjectWithTag("Player");
