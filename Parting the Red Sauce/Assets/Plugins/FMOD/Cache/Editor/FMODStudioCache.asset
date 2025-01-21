@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 8516958044648251524}
   StringsBanks:
   - {fileID: 3947413897856801569}
-  cacheTime: 638730629818461444
+  cacheTime: 638730458359221752
   cacheVersion: 131621
 --- !u!114 &3209790601959946089
 MonoBehaviour:
@@ -66,7 +66,7 @@ MonoBehaviour:
   Path: ../FMOD Project/Parting the Red Sauce Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638730629818461444
+  lastModified: 638730458359221752
   FileSizes:
   - Name: Desktop
     Value: 754
@@ -86,7 +86,7 @@ MonoBehaviour:
   Path: ../FMOD Project/Parting the Red Sauce Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638730629818441503
+  lastModified: 638730458359221752
   FileSizes:
   - Name: Desktop
     Value: 62848
