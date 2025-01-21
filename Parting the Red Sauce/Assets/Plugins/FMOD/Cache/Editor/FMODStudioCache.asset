@@ -1,6 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7348826616165376454
+--- !u!114 &-2888710020234074819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/boop
+  m_EditorClassIdentifier: 
+  Path: event:/boop
+  Guid:
+    Data1: 79127205
+    Data2: 1162590523
+    Data3: -989708395
+    Data4: -285851751
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5903
+--- !u!114 &-441108991285165093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: ../FMOD Project/Parting the Red Sauce Audio/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638730647411267735
+  FileSizes:
+  - Name: Desktop
+    Value: 876
+  Exists: 1
+--- !u!114 &5088674511875988130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,15 +90,15 @@ MonoBehaviour:
   - {fileID: 3947413897856801569}
   - {fileID: 8516958044648251524}
   EditorEvents:
-  - {fileID: 5088674511875988130}
-  - {fileID: -7348826616165376454}
-  - {fileID: 9221745721540587027}
+  - {fileID: 3947949537338766823}
+  - {fileID: -441108991285165093}
+  - {fileID: -2888710020234074819}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8516958044648251524}
   StringsBanks:
   - {fileID: 3947413897856801569}
-  cacheTime: 638730647411267735
+  cacheTime: 638730467306441614
   cacheVersion: 131621
 --- !u!114 &3947413897856801569
 MonoBehaviour:
@@ -63,17 +110,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.strings.bank
+  m_Name: bank:/Master.bank
   m_EditorClassIdentifier: 
   Path: ../FMOD Project/Parting the Red Sauce Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638730647411267735
+  lastModified: 638730467306441614
   FileSizes:
   - Name: Desktop
     Value: 876
   Exists: 1
---- !u!114 &5088674511875988130
+--- !u!114 &3947949537338766823
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,41 +156,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/boop
   m_EditorClassIdentifier: 
   Path: ../FMOD Project/Parting the Red Sauce Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638730647411187951
+  lastModified: 638730467306441614
   FileSizes:
   - Name: Desktop
     Value: 71488
   Exists: 1
---- !u!114 &9221745721540587027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/boop
-  m_EditorClassIdentifier: 
-  Path: event:/boop
-  Guid:
-    Data1: 79127205
-    Data2: 1162590523
-    Data3: -989708395
-    Data4: -285851751
-  Banks:
-  - {fileID: 8516958044648251524}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 5903
