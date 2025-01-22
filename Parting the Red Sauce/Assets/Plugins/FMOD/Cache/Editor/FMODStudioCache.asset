@@ -1,5 +1,194 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7131875503006678477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/~shared/card_scrape
+  m_EditorClassIdentifier: 
+  Path: event:/~shared/card_scrape
+  Guid:
+    Data1: -210375306
+    Data2: 1147516253
+    Data3: 1645413283
+    Data4: 522208040
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 189
+--- !u!114 &-3446701122888036843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/battle/card_select
+  m_EditorClassIdentifier: 
+  Path: event:/battle/card_select
+  Guid:
+    Data1: -2088444521
+    Data2: 1278596912
+    Data3: 290016411
+    Data4: 1391001027
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 375
+--- !u!114 &-3253645199376454205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/ui_select
+  m_EditorClassIdentifier: 
+  Path: event:/UI/ui_select
+  Guid:
+    Data1: 645227348
+    Data2: 1303882009
+    Data3: 634187182
+    Data4: 687634292
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 136
+--- !u!114 &-3120535135345007078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/~shared/card_pickup
+  m_EditorClassIdentifier: 
+  Path: event:/~shared/card_pickup
+  Guid:
+    Data1: 2109184332
+    Data2: 1158003715
+    Data3: 1203586218
+    Data4: 1400967343
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 428
+--- !u!114 &-2877581172192345949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/ui_hover
+  m_EditorClassIdentifier: 
+  Path: event:/UI/ui_hover
+  Guid:
+    Data1: 1100661608
+    Data2: 1192905874
+    Data3: -758823540
+    Data4: -1598045986
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 136
+--- !u!114 &-2166008382924191214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/~shared/card_slap
+  m_EditorClassIdentifier: 
+  Path: event:/~shared/card_slap
+  Guid:
+    Data1: -1162208889
+    Data2: 1212606561
+    Data3: 580219530
+    Data4: -1308688477
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 128
+--- !u!114 &-174827736283796180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/battle/card_hover
+  m_EditorClassIdentifier: 
+  Path: event:/battle/card_hover
+  Guid:
+    Data1: 1077119767
+    Data2: 1222988037
+    Data3: -2082412655
+    Data4: 650003319
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 189
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16,15 +205,23 @@ MonoBehaviour:
   - {fileID: 3947413897856801569}
   - {fileID: 8516958044648251524}
   EditorEvents:
-  - {fileID: 3209790601959946089}
+  - {fileID: -174827736283796180}
+  - {fileID: 1597986860204122347}
+  - {fileID: -3120535135345007078}
+  - {fileID: -3253645199376454205}
+  - {fileID: -2877581172192345949}
+  - {fileID: -7131875503006678477}
+  - {fileID: -2166008382924191214}
+  - {fileID: -3446701122888036843}
+  - {fileID: 1066866376801811379}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8516958044648251524}
   StringsBanks:
   - {fileID: 3947413897856801569}
-  cacheTime: 638730458359221752
+  cacheTime: 638731690426170707
   cacheVersion: 131621
---- !u!114 &3209790601959946089
+--- !u!114 &1066866376801811379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -34,9 +231,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Boop
+  m_Name: event:/boop
   m_EditorClassIdentifier: 
-  Path: event:/Boop
+  Path: event:/boop
   Guid:
     Data1: 79127205
     Data2: 1162590523
@@ -51,6 +248,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 5903
+--- !u!114 &1597986860204122347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/UI/ui_confirm
+  m_EditorClassIdentifier: 
+  Path: event:/UI/ui_confirm
+  Guid:
+    Data1: 1275252536
+    Data2: 1337538481
+    Data3: -107410530
+    Data4: -2038659887
+  Banks:
+  - {fileID: 8516958044648251524}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 136
 --- !u!114 &3947413897856801569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,10 +290,10 @@ MonoBehaviour:
   Path: ../FMOD Project/Parting the Red Sauce Audio/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638730458359221752
+  lastModified: 638731690426170707
   FileSizes:
   - Name: Desktop
-    Value: 754
+    Value: 1148
   Exists: 1
 --- !u!114 &8516958044648251524
 MonoBehaviour:
@@ -86,8 +310,8 @@ MonoBehaviour:
   Path: ../FMOD Project/Parting the Red Sauce Audio/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638730458359221752
+  lastModified: 638731690426145665
   FileSizes:
   - Name: Desktop
-    Value: 62848
+    Value: 112448
   Exists: 1
