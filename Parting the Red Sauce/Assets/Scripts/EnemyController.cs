@@ -17,7 +17,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float detectionRange;
     [SerializeField] private int fieldOfView;
-    private float attackRange = 0.75f;
+    [SerializeField] private float attackRange;
     private Vector3 targetDirection;
     private float directionChangeCooldown;
     private Rigidbody2D _rigidbody;
@@ -116,6 +116,7 @@ public class EnemyController : MonoBehaviour
                 if(distanceToPlayer <= attackRange)
                 {
                     Attack();
+                    return true;
                 }
                 //returns that the player is wihtin range
                 return true;
@@ -129,10 +130,16 @@ public class EnemyController : MonoBehaviour
 
     private void Attack()
     {
+        
         // play animation for attacking or something
         //information about damage numbers
         // maybe use specail attack class?
         if (OnEnemyAttack != null) OnEnemyAttack(this, EventArgs.Empty);
+    }
+
+    private bool AttackMovement()
+    {
+        return true;
     }
 
     private void UpdateHealthbarLocation()
