@@ -40,6 +40,7 @@ public class HealthSystem
         totalDamage = damageAmount * (1 - (defence * defenceEffectivness));
         health -= totalDamage;
 
+        //fires off the event letting any other scripts listening that the health has changed
         if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
     }
 
@@ -54,6 +55,7 @@ public class HealthSystem
             health = maxHealth;
         }
 
+        //fires off the event letting any other scripts listening that the health has changed
         if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
 
     }
