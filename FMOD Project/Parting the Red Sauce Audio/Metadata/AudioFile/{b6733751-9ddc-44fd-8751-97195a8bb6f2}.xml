@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{b6733751-9ddc-44fd-8751-97195a8bb6f2}">
 		<property name="assetPath">
-			<value>Kyjo-Blue-john-scream-.mp3</value>
+			<value>test files/Kyjo-Blue-john-scream-.mp3</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
