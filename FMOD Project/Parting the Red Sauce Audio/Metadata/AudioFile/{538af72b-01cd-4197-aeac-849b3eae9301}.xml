@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{538af72b-01cd-4197-aeac-849b3eae9301}">
+		<property name="assetPath">
+			<value>Cards/card_scrape_soft_01.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.17424999999999999</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b36d230c-0e2c-46c7-9093-9b1e1f87f202}</destination>
+		</relationship>
+	</object>
+</objects>
