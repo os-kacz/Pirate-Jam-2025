@@ -270,6 +270,7 @@ MonoBehaviour:
   rotationSpeed: 100
   detectionRange: 5
   fieldOfView: 100
+  attackRange: 0
   player: {fileID: 1837470836}
 --- !u!4 &279261438
 Transform:

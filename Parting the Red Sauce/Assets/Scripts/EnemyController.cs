@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    private void Update()
+    private void FixedUpdate()
     {
         healthbarLocation = this.transform.position + new Vector3(0, 1, 0);
 
