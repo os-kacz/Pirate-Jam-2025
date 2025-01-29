@@ -150,14 +150,9 @@ public class PlayerController : MonoBehaviour
 
         if(enemyHealth != null)
         {
-            Attack(enemyHealth, 10f);
+            DamageEvent.TriggerDamage(enemyHealth, 25f);
         }
         
-    }
-
-    public void Attack(IHealth enemy, float damage)
-    {
-        DamageEvent.TriggerDamage(enemy, damage);
     }
 
 }

@@ -7,8 +7,8 @@ public class EnemyController : MonoBehaviour
     public event EventHandler OnEnemyAttack;
 
     //healthbar information
-    public GameObject pfHealthbar;
-   
+    public Transform pfHealthbar;
+    private Vector3 healthbarLocation;
 
     //movemeent and detection information
     [SerializeField] private float walkSpeed;
@@ -23,6 +23,11 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D _rigidbody;
     public GameObject player;
 
+    //enemy attack
+    private bool withinAttackRange;
+    public GameObject attackArea;
+    private float attackTimer;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -32,6 +37,10 @@ public class EnemyController : MonoBehaviour
     private void Start()
     {
         
+        if(attackArea == null)
+        {
+            attackArea = GameObject.Find("EnemyAttackArea");
+        }
         // sets health and defence, need to add a way to input specifc health and defence to each enemy
        /* healthSystem = new HealthSystem(100, 0);
         HealthBar healthBar = healthbarTransform.GetComponent<HealthBar>();
@@ -43,16 +52,13 @@ public class EnemyController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //healthbarLocation = this.transform.position + new Vector3(0, 1, 0);
+        healthbarLocation = this.transform.position + new Vector3(0, -0.75f, 0);
 
         UpdateEnemyMovement();
         UpdateRotation(); 
-        //SetVelocity();
-        //UpdateHealthbarLocation();
 
     }
     
-
 
     private void UpdateEnemyMovement()
     {
@@ -61,7 +67,7 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("Player detected");
             _rigidbody.linearVelocity = targetDirection * chaseSpeed;
-                }
+        }
         else
         {
             RandomDirectionChange();
@@ -123,18 +129,12 @@ public class EnemyController : MonoBehaviour
         if( dotProduct < 0)
         {
             _rigidbody.SetRotation(Quaternion.Euler(0, 0, this.transform.rotation.eulerAngles.z - 180));
+            pfHealthbar.SetPositionAndRotation(healthbarLocation, Quaternion.identity);
             
         }
         
 
         //_rigidbody.SetRotation(rotation);
-
-    }
-
-    private void SetVelocity()
-    {
-        // makes this enemy move towards the player as long as the player is within range
-        transform.position += targetDirection * walkSpeed;
 
     }
 
@@ -154,7 +154,6 @@ public class EnemyController : MonoBehaviour
             targetDirection = directionToPlayer;
             dotProduct = Vector3.Dot(this.transform.right, directionToPlayer);
 
-            return true;
         }
 
         //returns that the player is not within range
@@ -162,18 +161,25 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void Attack()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
-        // play animation for attacking or something
-        //information about damage numbers
-        // maybe use specail attack class?
-        if (OnEnemyAttack != null) OnEnemyAttack(this, EventArgs.Empty);
+        IHealth playerHealth = collision.GetComponent<IHealth>();
+
+        if(playerHealth != null)
+        {
+            DamageEvent.TriggerDamage(playerHealth, 10f);
+
+        }
     }
 
-    private bool AttackMovement()
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        return true;
+        IHealth playerHealth = collision.GetComponent<IHealth>();
+
+        if (playerHealth != null)
+        {
+            attackTimer = 0f;
+        }
     }
 
     private void UpdateHealthbarLocation()
