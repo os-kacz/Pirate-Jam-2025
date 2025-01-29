@@ -1,58 +1,56 @@
 using UnityEngine;
 using System;
 
-public class HealthSystem
+public class HealthSystem : MonoBehaviour, IHealth
 {
-    private float health;
-    private float maxHealth;
-    private int defence;
+    private float currentHealth;
+    [SerializeField] private float maxHealth;
+    [SerializeField] private int defence;
     private float defenceEffectivness = 0.03f;
 
     public event EventHandler OnHealthChanged;
 
-    public HealthSystem(float maxHealth, int defence)
+    public void Start()
     {
-        // settting the objects health and defence
-        this.maxHealth = maxHealth;
-        this.defence = defence;
-        health = maxHealth;
-        
+        currentHealth = maxHealth;
+        DamageEvent.OnDamageDealt += HandleDamage;
     }
+
 
     public float GetHealth()
     {
-        return health;
+        return currentHealth;
     }
 
     public float GetHealthPercentage()
     {
-        return health / maxHealth;
+        return currentHealth / maxHealth;
     }
     public int GetDefence()
     {
         return defence;
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(float damageAmount)
     {
         // calculates the total damage received after defence is considered, then removes total damage received from health
         float totalDamage;
         totalDamage = damageAmount * (1 - (defence * defenceEffectivness));
-        health -= totalDamage;
+        currentHealth -= totalDamage;
 
         //fires off the event letting any other scripts listening that the health has changed
         if (OnHealthChanged != null) OnHealthChanged(this, EventArgs.Empty);
     }
 
-    public void Heal(int healAmount)
+    public void Heal(float healAmount)
     {
         // heals object for specified amount
-        health += healAmount;
+        currentHealth += healAmount;
 
         // checks if objects health exceeds max health and resets it to max health if necessary
-        if (health > maxHealth)
+        if (currentHealth > maxHealth)
         {
-            health = maxHealth;
+            currentHealth = maxHealth;
         }
 
         //fires off the event letting any other scripts listening that the health has changed
@@ -60,4 +58,11 @@ public class HealthSystem
 
     }
 
+    private void HandleDamage(IHealth target, float damage)
+    {
+        if (target == this)
+        {
+            TakeDamage(damage);
+        }
+    }
 }

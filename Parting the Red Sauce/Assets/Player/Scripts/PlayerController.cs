@@ -8,12 +8,10 @@ public class PlayerController : MonoBehaviour
 {
 
     //events 
-    [SerializeField] private EnemyController enemyController;
 
 
     //healthbar information
     public Transform pfHealthbar;
-    private HealthSystem healthSystem;
     private Vector3 healthbarLocation;
     private Transform healthbarTransform;
 
@@ -22,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private GameObject playerObject;
     private GameObject rightStickLookat;
     private GameObject shootyBarrel;
+    private GameObject attackingArea;
 
     private Rigidbody2D playerMovement;
     
@@ -40,11 +39,20 @@ public class PlayerController : MonoBehaviour
         {
             playerObject = GameObject.FindGameObjectWithTag("Player");
             playerMovement = playerObject.GetComponent<Rigidbody2D>();
+
+
             //healthbar setup
-            healthSystem = new HealthSystem(100, 0);
-            healthbarTransform = Instantiate(pfHealthbar, healthbarLocation, Quaternion.identity);
-            HealthBar healthBar = healthbarTransform.GetComponent<HealthBar>();
-            healthBar.HealthBarSetup(healthSystem);
+
+
+
+            /*healthSystem.HealthSystem(100, 0);
+             healthbarTransform = Instantiate(pfHealthbar, healthbarLocation, Quaternion.identity);
+        HealthBar healthBar = healthbarTransform.GetComponent<HealthBar>();
+        HealthSystem healthSystem = this.GetComponent<HealthSystem>();
+        healthBar.HealthBarSetup(healthSystem);
+            */
+
+
             // need to connect the enemyController class or think of a better way
             //enemyController.OnEnemyAttack += EnemyController_OnEnemyAttack;
         }
@@ -58,15 +66,17 @@ public class PlayerController : MonoBehaviour
         {
             shootyBarrel = GameObject.Find("ShootyBarrel");
         }
+        if (attackingArea == null)
+        {
+            attackingArea = GameObject.Find("AttackingArea");
+        }
         
         inputMovement = playerObject.transform.position;
         inputLookat = rightStickLookat.transform.position;
+
+       
     }
 
-    private void EnemyController_OnEnemyAttack(object sender, EventArgs e)
-    {
-        healthSystem.TakeDamage(10);
-    }
 
     public void DeviceChangeEvent(PlayerInput playerInput)
     {
@@ -129,13 +139,25 @@ public class PlayerController : MonoBehaviour
         shootyBarrel.transform.LookAt(rightStickLookat.transform.position);
 
         // keeping the healthbar above the players head
-        healthbarLocation = this.transform.position + new Vector3(0, 1, 0);
-        UpdateHealthbarLocation();
+        //healthbarLocation = this.transform.position + new Vector3(0, 1, 0);
+        //UpdateHealthbarLocation();
+
     }
 
-    private void UpdateHealthbarLocation()
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        healthbarTransform.SetPositionAndRotation(healthbarLocation, Quaternion.identity);
+        IHealth enemyHealth = collision.GetComponent<IHealth>();
+
+        if(enemyHealth != null)
+        {
+            Attack(enemyHealth, 10f);
+        }
+        
+    }
+
+    public void Attack(IHealth enemy, float damage)
+    {
+        DamageEvent.TriggerDamage(enemy, damage);
     }
 
 }

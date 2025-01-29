@@ -7,18 +7,18 @@ public class EnemyController : MonoBehaviour
     public event EventHandler OnEnemyAttack;
 
     //healthbar information
-    public Transform pfHealthbar;
-    private HealthSystem healthSystem;
-    private Vector3 healthbarLocation;
-    private Transform healthbarTransform;
+    public GameObject pfHealthbar;
+   
 
     //movemeent and detection information
-    [SerializeField] private int speed;
+    [SerializeField] private float walkSpeed;
+    [SerializeField] private float chaseSpeed;
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float detectionRange;
     [SerializeField] private int fieldOfView;
     [SerializeField] private float attackRange;
     private Vector3 targetDirection;
+    private float dotProduct;
     private float directionChangeCooldown;
     private Rigidbody2D _rigidbody;
     public GameObject player;
@@ -31,49 +31,60 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
+        
         // sets health and defence, need to add a way to input specifc health and defence to each enemy
-        healthSystem = new HealthSystem(100, 0);
-        healthbarTransform = Instantiate(pfHealthbar, healthbarLocation, Quaternion.identity);
+       /* healthSystem = new HealthSystem(100, 0);
         HealthBar healthBar = healthbarTransform.GetComponent<HealthBar>();
         healthBar.HealthBarSetup(healthSystem);
+        healthbarTransform = Instantiate(pfHealthbar, healthbarLocation, Quaternion.identity);*/
 
     }
 
 
     private void FixedUpdate()
     {
-        healthbarLocation = this.transform.position + new Vector3(0, 1, 0);
+        //healthbarLocation = this.transform.position + new Vector3(0, 1, 0);
 
-        UpdateDirection();
+        UpdateEnemyMovement();
         UpdateRotation(); 
-        SetVelocity();
-        UpdateHealthbarLocation();
+        //SetVelocity();
+        //UpdateHealthbarLocation();
 
     }
     
 
 
-    private void UpdateDirection()
+    private void UpdateEnemyMovement()
     {
-        RandomDirectionChange();
 
         if (DetectPlayer())
         {
-            //sets the direction of this enemy towards the player
-            targetDirection = player.transform.position - this.transform.position;
+            Debug.Log("Player detected");
+            _rigidbody.linearVelocity = targetDirection * chaseSpeed;
+                }
+        else
+        {
+            RandomDirectionChange();
+            _rigidbody.linearVelocity = targetDirection * walkSpeed;
         }
     }
 
     private void RandomDirectionChange()
     {
+
         directionChangeCooldown -= Time.deltaTime;
 
         if (directionChangeCooldown <= 0)
         {
-            float angleChange = UnityEngine.Random.Range(-90f, 90f);
-            Quaternion rotation = Quaternion.AngleAxis(angleChange, this.transform.forward);
+            Debug.Log("RandomDirection");
 
-            targetDirection = rotation * targetDirection;
+            //float angleChange = UnityEngine.Random.Range(-90f, 90f);
+            //Quaternion rotation = Quaternion.AngleAxis(angleChange, this.transform.up);
+            float randomX = UnityEngine.Random.Range(-1f, 1f);
+            float randomY = UnityEngine.Random.Range(-1f, 1f);
+            Vector3 randomDirection = new Vector3(randomX, randomY, 0).normalized;
+
+            targetDirection = randomDirection;
 
             directionChangeCooldown = UnityEngine.Random.Range(1f, 5f);
         }
@@ -82,18 +93,48 @@ public class EnemyController : MonoBehaviour
     private void UpdateRotation()
     {
         // sets the target rotation and rotates the rigidbody of the enemy to the players direction, still confused on how quartenions work
-        Quaternion targetRoattion = Quaternion.LookRotation(this.transform.up, targetDirection);
-        Quaternion rotation = Quaternion.RotateTowards(this.transform.rotation, targetRoattion, rotationSpeed * Time.deltaTime);
+        //Quaternion targetRoattion = Quaternion.LookRotation(this.transform.up, targetDirection);
+        //Quaternion rotation = Quaternion.RotateTowards(this.transform.rotation, targetRoattion, rotationSpeed * Time.deltaTime);
+
+        /*if (Mathf.Abs(targetDirection.x) > Mathf.Abs(targetDirection.y))
+        {
+
+            if (targetDirection.x >= 0)
+            {
+                _rigidbody.SetRotation(Quaternion.Euler(0, 0, -90));
+            }
+            else
+            {
+                _rigidbody.SetRotation(Quaternion.Euler(0, 0, 90));
+            }
+        }
+        else
+        {
+             if (targetDirection.y >= 0)
+             {
+                 _rigidbody.SetRotation(Quaternion.Euler(0, 0, 90));
+             }
+             else
+             {
+                 _rigidbody.SetRotation(Quaternion.Euler(0, 0, -90));
+             }
+        }*/
+
+        if( dotProduct < 0)
+        {
+            _rigidbody.SetRotation(Quaternion.Euler(0, 0, this.transform.rotation.eulerAngles.z - 180));
+            
+        }
         
 
-        _rigidbody.SetRotation(rotation);
+        //_rigidbody.SetRotation(rotation);
 
     }
 
     private void SetVelocity()
     {
         // makes this enemy move towards the player as long as the player is within range
-        _rigidbody.linearVelocity = transform.up * speed;
+        transform.position += targetDirection * walkSpeed;
 
     }
 
@@ -101,26 +142,19 @@ public class EnemyController : MonoBehaviour
     private bool DetectPlayer()
     {
         // sets and noramlises the direction from this enemy to the player
-        Vector3 directionToPlayer = player.transform.position - this.transform.position;
-        directionToPlayer.Normalize();
+        Vector3 directionToPlayer = (player.transform.position - this.transform.position).normalized;
 
         //find the angle and the distance from this enemy to the player
-        float angleToPlayer = Vector3.Angle(this.transform.up, directionToPlayer);
+        //float angleToPlayer = Vector3.Angle(this.transform.up, directionToPlayer);
         float distanceToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
 
         //checks if the player is within this enemies FOV and if it is wihtin a decectable range of this enemy
-        if (angleToPlayer <= fieldOfView / 2f)
+        if (distanceToPlayer <= detectionRange)
         {
-            if (distanceToPlayer <= detectionRange)
-            {
-                if(distanceToPlayer <= attackRange)
-                {
-                    Attack();
-                    return true;
-                }
-                //returns that the player is wihtin range
-                return true;
-            }
+            targetDirection = directionToPlayer;
+            dotProduct = Vector3.Dot(this.transform.right, directionToPlayer);
+
+            return true;
         }
 
         //returns that the player is not within range
@@ -144,7 +178,7 @@ public class EnemyController : MonoBehaviour
 
     private void UpdateHealthbarLocation()
     {
-        healthbarTransform.SetPositionAndRotation(healthbarLocation, Quaternion.identity);
+        //healthbarTransform.SetPositionAndRotation(healthbarLocation, Quaternion.identity);
     }
 
 }
