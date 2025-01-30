@@ -4,7 +4,6 @@ using System;
 public class EnemyController : MonoBehaviour
 {
     //events
-    public event EventHandler OnEnemyAttack;
 
     //healthbar information
     public Transform pfHealthbar;
@@ -24,7 +23,6 @@ public class EnemyController : MonoBehaviour
     public GameObject player;
 
     //enemy attack
-    private bool withinAttackRange;
     public GameObject attackArea;
     private float attackTimer;
 
@@ -55,7 +53,10 @@ public class EnemyController : MonoBehaviour
         healthbarLocation = this.transform.position + new Vector3(0, -0.75f, 0);
 
         UpdateEnemyMovement();
-        UpdateRotation(); 
+        UpdateRotation();
+
+        attackTimer += Time.deltaTime;
+        Debug.Log(attackTimer);
 
     }
     
@@ -65,8 +66,12 @@ public class EnemyController : MonoBehaviour
 
         if (DetectPlayer())
         {
-            Debug.Log("Player detected");
             _rigidbody.linearVelocity = targetDirection * chaseSpeed;
+            if(Vector3.Distance(this.transform.position, player.transform.position) < attackRange)
+            {
+                _rigidbody.linearVelocity = targetDirection * 0f;
+            }
+
         }
         else
         {
@@ -82,8 +87,6 @@ public class EnemyController : MonoBehaviour
 
         if (directionChangeCooldown <= 0)
         {
-            Debug.Log("RandomDirection");
-
             //float angleChange = UnityEngine.Random.Range(-90f, 90f);
             //Quaternion rotation = Quaternion.AngleAxis(angleChange, this.transform.up);
             float randomX = UnityEngine.Random.Range(-1f, 1f);
@@ -153,7 +156,7 @@ public class EnemyController : MonoBehaviour
         {
             targetDirection = directionToPlayer;
             dotProduct = Vector3.Dot(this.transform.right, directionToPlayer);
-
+            return true;
         }
 
         //returns that the player is not within range
@@ -161,13 +164,18 @@ public class EnemyController : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         IHealth playerHealth = collision.GetComponent<IHealth>();
 
-        if(playerHealth != null)
+        if (playerHealth != null)
         {
-            DamageEvent.TriggerDamage(playerHealth, 10f);
+            if (attackTimer >= 3f)
+            {
+                DamageEvent.TriggerDamage(playerHealth, 10f);
+                attackTimer = 0f;
+                
+            }
 
         }
     }
@@ -178,7 +186,6 @@ public class EnemyController : MonoBehaviour
 
         if (playerHealth != null)
         {
-            attackTimer = 0f;
         }
     }
 
