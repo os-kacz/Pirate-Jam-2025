@@ -497,7 +497,22 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mozzarella_Sprite_Sheet_0: -2299613761627021609
+      Mozzarella_Sprite_Sheet_1: 2766502947775128598
+      Mozzarella_Sprite_Sheet_10: -3360355515606636452
+      Mozzarella_Sprite_Sheet_11: -1943606375845874572
+      Mozzarella_Sprite_Sheet_12: 811315880752952701
+      Mozzarella_Sprite_Sheet_13: 218999689107688862
+      Mozzarella_Sprite_Sheet_14: -9060749891444649672
+      Mozzarella_Sprite_Sheet_2: 5824464471952323996
+      Mozzarella_Sprite_Sheet_3: -4117160220493507184
+      Mozzarella_Sprite_Sheet_4: -8917564772489551334
+      Mozzarella_Sprite_Sheet_5: -3942854171024219990
+      Mozzarella_Sprite_Sheet_6: 2859872074044972149
+      Mozzarella_Sprite_Sheet_7: -2372637201068129503
+      Mozzarella_Sprite_Sheet_8: -6630646452035822124
+      Mozzarella_Sprite_Sheet_9: -7913039567245208639
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
