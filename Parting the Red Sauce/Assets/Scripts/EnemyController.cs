@@ -56,7 +56,6 @@ public class EnemyController : MonoBehaviour
         UpdateRotation();
 
         attackTimer += Time.deltaTime;
-        Debug.Log(attackTimer);
 
     }
     
@@ -135,7 +134,7 @@ public class EnemyController : MonoBehaviour
             pfHealthbar.SetPositionAndRotation(healthbarLocation, Quaternion.identity);
             
         }
-        
+
 
         //_rigidbody.SetRotation(rotation);
 
@@ -150,6 +149,7 @@ public class EnemyController : MonoBehaviour
         //find the angle and the distance from this enemy to the player
         //float angleToPlayer = Vector3.Angle(this.transform.up, directionToPlayer);
         float distanceToPlayer = Vector3.Distance(this.transform.position, player.transform.position);
+
 
         //checks if the player is within this enemies FOV and if it is wihtin a decectable range of this enemy
         if (distanceToPlayer <= detectionRange)

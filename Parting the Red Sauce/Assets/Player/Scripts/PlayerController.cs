@@ -15,12 +15,16 @@ public class PlayerController : MonoBehaviour
     private Vector3 healthbarLocation;
     private Transform healthbarTransform;
 
+    //Attack information
+    [SerializeField]
+    private GameObject attackBox;
+    private float attackTimer;
+
 
 
     private GameObject playerObject;
     private GameObject rightStickLookat;
-    private GameObject shootyBarrel;
-    private GameObject attackingArea;
+    private GameObject shootyBarrelArrow;
 
     private Rigidbody2D playerMovement;
     
@@ -62,13 +66,13 @@ public class PlayerController : MonoBehaviour
             rightStickLookat = GameObject.FindGameObjectWithTag("RightJoystick");
         }
 
-        if (shootyBarrel == null)
+        if (shootyBarrelArrow == null)
         {
-            shootyBarrel = GameObject.Find("ShootyBarrel");
+            shootyBarrelArrow = GameObject.Find("ShootyBarrel");
         }
-        if (attackingArea == null)
+        if (attackBox == null)
         {
-            attackingArea = GameObject.Find("AttackingArea");
+            attackBox = GameObject.Find("AttackArea");
         }
         
         inputMovement = playerObject.transform.position;
@@ -113,6 +117,24 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            attackBox.SetActive(true);
+            Debug.Log("Atack area true");
+        }
+        
+
+        if(context.canceled)
+        {
+            attackBox.SetActive(false);
+            Debug.Log("Atack area false");
+        }
+
+
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //Debug.Log("Collision Enter: " + collision.gameObject.name);
@@ -124,6 +146,8 @@ public class PlayerController : MonoBehaviour
         Vector2 newPlayerPosition = new Vector2(inputMovement.x, inputMovement.y) * (playerSpeed * Time.fixedDeltaTime);
         
         playerMovement.MovePosition(newPlayerPosition + playerMovement.position);
+
+
     }
 
     private void Update()
@@ -136,7 +160,7 @@ public class PlayerController : MonoBehaviour
         {
             rightStickLookat.transform.localPosition = new Vector3(inputLookat.x, inputLookat.y, 0);
         }
-        shootyBarrel.transform.LookAt(rightStickLookat.transform.position);
+        shootyBarrelArrow.transform.LookAt(rightStickLookat.transform.position);
 
         // keeping the healthbar above the players head
         //healthbarLocation = this.transform.position + new Vector3(0, 1, 0);
@@ -146,11 +170,16 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Collision");
         IHealth enemyHealth = collision.GetComponent<IHealth>();
 
         if(enemyHealth != null)
         {
-            DamageEvent.TriggerDamage(enemyHealth, 25f);
+            if(collision.CompareTag("Enemy"))
+            {
+                DamageEvent.TriggerDamage(enemyHealth, 25f);
+
+            }
         }
         
     }
