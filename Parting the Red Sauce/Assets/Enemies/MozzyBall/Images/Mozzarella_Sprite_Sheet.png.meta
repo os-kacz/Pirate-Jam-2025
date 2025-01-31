@@ -1,0 +1,505 @@
+fileFormatVersion: 2
+guid: 4d2a4abdf9e280d439386980bcd1de22
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2299613761627021609
+    second: Mozzarella_Sprite_Sheet_0
+  - first:
+      213: 2766502947775128598
+    second: Mozzarella_Sprite_Sheet_1
+  - first:
+      213: 5824464471952323996
+    second: Mozzarella_Sprite_Sheet_2
+  - first:
+      213: -4117160220493507184
+    second: Mozzarella_Sprite_Sheet_3
+  - first:
+      213: -8917564772489551334
+    second: Mozzarella_Sprite_Sheet_4
+  - first:
+      213: -3942854171024219990
+    second: Mozzarella_Sprite_Sheet_5
+  - first:
+      213: 2859872074044972149
+    second: Mozzarella_Sprite_Sheet_6
+  - first:
+      213: -2372637201068129503
+    second: Mozzarella_Sprite_Sheet_7
+  - first:
+      213: -6630646452035822124
+    second: Mozzarella_Sprite_Sheet_8
+  - first:
+      213: -7913039567245208639
+    second: Mozzarella_Sprite_Sheet_9
+  - first:
+      213: -3360355515606636452
+    second: Mozzarella_Sprite_Sheet_10
+  - first:
+      213: -1943606375845874572
+    second: Mozzarella_Sprite_Sheet_11
+  - first:
+      213: 811315880752952701
+    second: Mozzarella_Sprite_Sheet_12
+  - first:
+      213: 218999689107688862
+    second: Mozzarella_Sprite_Sheet_13
+  - first:
+      213: -9060749891444649672
+    second: Mozzarella_Sprite_Sheet_14
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 3539
+        width: 745
+        height: 660
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7de1f99b7712610e0800000000000000
+      internalID: -2299613761627021609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 3545
+        width: 750
+        height: 671
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614253006c7946620800000000000000
+      internalID: 2766502947775128598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 2300
+        y: 3543
+        width: 743
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c95f991f397a4d050800000000000000
+      internalID: 5824464471952323996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 3233
+        y: 3514
+        width: 744
+        height: 679
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0959d16d798ecd6c0800000000000000
+      internalID: -4117160220493507184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 4199
+        y: 3517
+        width: 745
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a12293236127e3480800000000000000
+      internalID: -8917564772489551334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 5203
+        y: 3520
+        width: 737
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa02fe6850b2849c0800000000000000
+      internalID: -3942854171024219990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 356
+        y: 2545
+        width: 745
+        height: 660
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57c9284cf7e40b720800000000000000
+      internalID: 2859872074044972149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 1335
+        y: 2543
+        width: 750
+        height: 671
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12305715903b21fd0800000000000000
+      internalID: -2372637201068129503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 2260
+        y: 2533
+        width: 743
+        height: 681
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dd533bbe263bf3a0800000000000000
+      internalID: -6630646452035822124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 3237
+        y: 2539
+        width: 745
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c31dbc407c3f2290800000000000000
+      internalID: -7913039567245208639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 4167
+        y: 2539
+        width: 745
+        height: 675
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58ed35667e9d51d0800000000000000
+      internalID: -3360355515606636452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 5131
+        y: 2542
+        width: 737
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 474b5808c4ce605e0800000000000000
+      internalID: -1943606375845874572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 1473
+        width: 799
+        height: 730
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75b9e8be7f524b00800000000000000
+      internalID: 811315880752952701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 1449
+        width: 799
+        height: 730
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9d4f239e0b0a0300800000000000000
+      internalID: 218999689107688862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mozzarella_Sprite_Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2392
+        y: 1471
+        width: 745
+        height: 660
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83158c9caffb14280800000000000000
+      internalID: -9060749891444649672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
