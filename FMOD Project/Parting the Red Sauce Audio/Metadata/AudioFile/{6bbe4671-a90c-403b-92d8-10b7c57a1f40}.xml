@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{6bbe4671-a90c-403b-92d8-10b7c57a1f40}">
+		<property name="assetPath">
+			<value>Cards/card_slap_05.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.10641666666666667</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{b36d230c-0e2c-46c7-9093-9b1e1f87f202}</destination>
+		</relationship>
+	</object>
+</objects>

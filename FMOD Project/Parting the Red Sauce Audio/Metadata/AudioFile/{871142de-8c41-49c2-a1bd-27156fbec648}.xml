@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{871142de-8c41-49c2-a1bd-27156fbec648}">
 		<property name="assetPath">
-			<value>Games, Misc, Playing Cards, Deck, Place Into Card Box 01 SND28892.wav</value>
+			<value>test files/Games, Misc, Playing Cards, Deck, Place Into Card Box 01 SND28892.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>48</value>
