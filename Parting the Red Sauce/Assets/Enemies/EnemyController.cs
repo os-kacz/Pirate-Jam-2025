@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Unity.VisualScripting.FullSerializer;
 
 public class EnemyController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class EnemyController : MonoBehaviour
     private float directionChangeCooldown;
     private Rigidbody2D _rigidbody;
     public GameObject player;
+    private SpriteRenderer spriteRenderer;
+    private bool flipSprite = false;
 
     //enemy attack
     public GameObject attackArea;
@@ -30,6 +33,7 @@ public class EnemyController : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         targetDirection = this.transform.up;
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -133,7 +137,8 @@ public class EnemyController : MonoBehaviour
         {
             _rigidbody.SetRotation(Quaternion.Euler(0, 0, this.transform.rotation.eulerAngles.z - 180));
             pfHealthbar.SetPositionAndRotation(healthbarLocation, Quaternion.identity);
-            
+            flipSprite = !flipSprite;
+            spriteRenderer.flipY = flipSprite;
         }
         
 
@@ -156,6 +161,7 @@ public class EnemyController : MonoBehaviour
         {
             targetDirection = directionToPlayer;
             dotProduct = Vector3.Dot(this.transform.right, directionToPlayer);
+            Debug.Log("Dot Product: " + dotProduct);
             return true;
         }
 
