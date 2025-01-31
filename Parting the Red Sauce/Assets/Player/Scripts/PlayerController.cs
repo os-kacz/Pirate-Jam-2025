@@ -140,6 +140,11 @@ public class PlayerController : MonoBehaviour
         //Debug.Log("Collision Enter: " + collision.gameObject.name);
     }
 
+    public void OnPossess(InputAction.CallbackContext context)
+    {
+        
+    }
+
     private void FixedUpdate()
     {
         // so the movement is physics-based, we shall see how it goes lol!
