@@ -56,7 +56,7 @@ public class EnemyController : MonoBehaviour
         UpdateRotation();
 
         attackTimer += Time.deltaTime;
-        Debug.Log(attackTimer);
+        //Debug.Log(attackTimer);
 
     }
     

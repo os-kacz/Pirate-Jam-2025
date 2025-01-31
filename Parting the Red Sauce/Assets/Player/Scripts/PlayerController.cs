@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D playerMovement;
     
+    private Animator animator;
+    private SpriteRenderer playerRenderer;
+    
     private Vector2 inputMovement;
     private Vector2 inputLookat;
     
@@ -39,7 +42,8 @@ public class PlayerController : MonoBehaviour
         {
             playerObject = GameObject.FindGameObjectWithTag("Player");
             playerMovement = playerObject.GetComponent<Rigidbody2D>();
-
+            animator = playerObject.GetComponentInChildren<Animator>();
+            playerRenderer = playerObject.GetComponent<SpriteRenderer>();
 
             //healthbar setup
 
@@ -87,9 +91,19 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
-        //Debug.Log(context.ReadValue<Vector2>());
+        //Debug.Log("Move Vector: "+context.ReadValue<Vector2>());
         
         inputMovement = new Vector2(context.ReadValue<Vector2>().x, context.ReadValue<Vector2>().y);
+        animator.SetFloat("AnimSpeed", inputMovement.magnitude);
+        switch (inputMovement.x)
+        {
+            case > 0:
+                playerRenderer.flipX = true;
+                break;
+            case < 0:
+                playerRenderer.flipX = false;
+                break;
+        }
     }
 
     public void OnLook(InputAction.CallbackContext context)
